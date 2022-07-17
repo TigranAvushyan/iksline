@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="fragments/head :: head"></head>
+
+<body>
+
+<div th:replace="fragments/layout/header :: header"></div>
+<section th:replace="fragments/hero-area :: hero-area"></section>
+
+
+<div class="pixel-portfolio-area section-padding-100-0">
+  <div th:replace="fragments/portfolio-header :: portfolio-header(img='img/core-img/logo2.png')"></div>
+
+
+  <section class="content-main-section bg-white wow fadeInUp" data-wow-delay="100ms">
+    <div class="container">
+      <h3 class="mb-5 text-center">СИСТЕМЫ ГАРАНТИРОВАННОГО ЭЛЕКТРОСНАБЖЕНИЯ
+                                   проектирование поставка и монтаж систем гарантированного электроснабжения</h3>
+      <div class="row gs">
+        <div class="col-md-6 col-sm-12 inner-right-sm p-3">
+          <img th:src="@{img/energy-img/energy-1.JPG}" />
+        </div>
+        <div class="col-md-6 col-sm-12 inner-right-sm p-3">
+          <img th:src="@{img/energy-img/energy-2.jpg}" />
+        </div>
+        <div class="col-md-6 col-sm-12 inner-right-sm p-3">
+          <img th:src="@{img/energy-img/energy-2.jpg}" />
+        </div>
+        <div class="col-md-6 col-sm-12 inner-right-sm p-3">
+          <img th:src="@{img/energy-img/energy-4.JPG}" />
+        </div>
+        <div class="col-md-6 col-sm-12 inner-right-sm p-3">
+          <img th:src="@{img/energy-img/energy-2.jpg}" />
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<div th:replace="fragments/layout/footer :: footer"></div>
+
+</body>
+
+</html>

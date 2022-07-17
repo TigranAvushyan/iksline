@@ -1,0 +1,92 @@
+<div th:fragment="header">
+  <div class="preloader d-flex align-items-center justify-content-center">
+    <div class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+
+  <header  class="header-area">
+    <!-- Navbar Area -->
+    <div class="pixel-main-menu" id="sticker">
+      <div class="classy-nav-container breakpoint-off">
+        <div class="container-fluid">
+          <!-- Menu -->
+          <nav class="classy-navbar justify-content-between" id="pixelNav">
+
+            <!-- Nav brand -->
+            <a th:href="@{'/'}" class="nav-brand"><img th:src="@{ /img/core-img/logo.png }" alt="" /></a>
+
+            <!-- Navbar Toggler -->
+            <div class="classy-navbar-toggler">
+              <span class="navbarToggler"><span></span><span></span><span></span></span>
+            </div>
+
+            <!-- Menu -->
+            <div class="classy-menu">
+
+              <!-- Close Button -->
+              <div class="classycloseIcon">
+                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+              </div>
+
+              <!-- Nav Start -->
+              <div class="classynav">
+                <ul>
+                  <li><a th:href="@{/static}">Главная</a></li>
+                  <li><a th:href="@{/about}">О нас</a></li>
+                  <li></li>
+                  <li><a href="#">Продукция и Услуги</a>
+                    <div class="megamenu">
+                      <ul class="single-mega cn-col-4">
+                        <li><a th:href="@{/security}">Безопасность</a></li>
+                        <li><a th:href="@{/video}">Видеонаблюдение</a></li>
+                        <li><a th:href="@{/energy}">Электроснабжения</a></li>
+                        <li><a th:href="@{/dispet}">Диспетчеризация</a></li>
+                        <li><a th:href="@{/radio}">Системы Радиосвязи</a></li>
+                        <li><a th:href="@{/traker}">Мониторинг Мобильных объектов</a></li>
+                        <li><a th:href="@{/trainbez}">Транспортная Безопасность</a></li>
+                      </ul>
+                      <ul class="single-mega cn-col-4">
+                        <li><a th:href="@{/telefonia}">Системы телефонии</a></li>
+                        <li><a th:href="@{/dispetsvyas}">Системы диспетчерской связи</a></li>
+                        <li><a th:href="@{/telemetria}">Сбор телеметрической информации</a></li>
+                        <li><a th:href="@{/monition}">Мониторинг техногенных обьектов</a></li>
+                        <li><a th:href="@{/contact}">Доступ к ресурсам сетей РЖД</a></li>
+                        <li><a th:href="@{/setirzd}">Доступ к ресурсам сетей РЖД</a></li>
+                      </ul>
+                      <ul class="single-mega cn-col-4">
+                        <li><a th:href="@{/proect}">Проектирование и сопровождение</a></li>
+                        <li><a th:href="@{/work}">Общестроительные работы </a></li>
+                        <li><a th:href="@{/services}">Инженерные сети</a></li>
+                        <li><a th:href="@{/naladka}">ПускоНаладка</a></li>
+                        <li><a th:href="@{/shefmontzh}">Шеф-Монтаж</a></li>
+                        <li><a th:href="@{/tehnadzor}">Технадзор</a></li>
+                      </ul>
+                      <ul class="single-mega cn-col-4">
+                        <li><a th:href="@{/metall}">Металлообработка</a></li>
+                        <li><a th:href="@{/lazer}">Лазерный раскрой металла </a></li>
+                        <li><a th:href="@{/gibka}">Гибка на ЧПУ</a></li>
+                        <li><a th:href="@{/svarka}">Сварка в среде защитных газов</a></li>
+                        <li><a th:href="@{/pokraska}">Предпокрасочная Подготовка и покраска</a></li>
+                        <li><a th:href="@{/pilomaterial}">Пиломатериал</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li><a th:href="@{contact}">Контакты</a></li>
+                </ul>
+
+                <!-- Top Social Info -->
+                <div class="top-social-info ml-5"></div>
+              </div>
+              <!-- Nav End -->
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>

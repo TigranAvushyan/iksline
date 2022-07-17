@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="fragments/head :: head"></head>
+
+<body>
+
+<div th:replace="fragments/layout/header :: header"></div>
+<section th:replace="fragments/hero-area :: hero-area"></section>
+
+
+<div class="pixel-portfolio-area section-padding-100-0">
+  <div th:replace="fragments/portfolio-header :: portfolio-header(img='img/core-img/logo2.png')"></div>
+
+  <section class="content-main-section bg-white wow fadeInUp" data-wow-delay="100ms">
+    <div class="container">
+      <div class="row gs">
+
+        <h3 class="mh-y w-100 text-center">Системы видеонаблюдения, обзоного и функционально ориентированного,с
+                                           элеменами ИИ.</h3>
+
+        <div class="col-md-6 col-sm-12 inner-right-sm p-3">
+          <img th:src="@{img/video-img/v-1.JPG}" />
+        </div>
+        <div class="col-md-6 col-sm-12 inner-right-sm p-3">
+          <img th:src="@{img/video-img/v-2.jpg}" />
+        </div>
+        <div class="col-md-6 col-sm-12 inner-right-sm p-3">
+          <img th:src="@{img/video-img/v-3.jpg}" />
+        </div>
+
+        <h3 class="my-5 w-100 text-center">Оборудование системами видеонаблюдения ЖД переездов с выводом информаци к
+                                           ДСП, ЦУСИ , ДПС</h3>
+
+        <div class="col-md-6 col-sm-12 inner-right-sm p-3">
+          <img th:src="@{img/video-img/v-4.JPG}" />
+        </div>
+        <div class="col-md-6 col-sm-12 inner-right-sm p-3">
+          <img th:src="@{img/video-img/v-5.JPG}" />
+        </div>
+
+
+        <h4 class="my-5">
+          Согласно Постановление Правительства РФ от 19 сентября 2020 г. N 1504
+          "Об утверждении Правил оборудования железнодорожных переездов, расположенных на железнодорожных путях общего
+          пользования,
+          работающими в автоматическом режиме специальными техническими средствами, имеющими функции фото- и киносъемки,
+          видеозаписи,
+          обеспечения обслуживания таких специальных технических средств,
+          а также передачи информации о выявленных с помощью этих специальных технических средств
+          нарушениях правил проезда через железнодорожные переезды в органы государственного контроля (надзора)"
+        </h4>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<div th:replace="fragments/layout/footer :: footer"></div>
+</body>
+
+</html>

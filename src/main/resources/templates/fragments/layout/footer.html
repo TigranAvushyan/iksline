@@ -1,0 +1,68 @@
+<div th:fragment="footer">
+  <footer  class="footer-area section-padding-100-0">
+    <div class="container-fluid">
+      <div class="row justify-content-between">
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="single-footer-widget mb-100">
+            <!-- Footer Logo -->
+            <a th:href="@{/static}" class="footer-logo"><img th:src="@{ /img/core-img/logo2.png }" alt="" /></a>
+          </div>
+        </div>
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-md-9 col-lg-8 col-xl-7">
+          <div class="row">
+            <!-- Single Footer Widget -->
+
+            <!-- Single Footer Widget -->
+            <div class="col-sm-4">
+              <div class="single-footer-widget mb-100">
+                <h5 class="widget-title">Контакты</h5>
+                <p><i class="fa fa-phone"></i> <br>+7 499 623 62 50</p>
+                <p><i class="fa fa-phone"></i> <br>+7 926 149 20 75</p>
+              </div>
+            </div>
+
+            <!-- Single Footer Widget -->                    </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copywrite Area -->
+    <div class="copywrite-area">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-12 col-md-6">
+            <div class="copywrite-content">
+              <!-- Copywrite Text -->
+              <p class="copywrite-text">
+                &copy;<script>document.write(new Date().getFullYear());</script>
+                All rights reserved | This site is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
+                  href="https://iksline.com" target="_blank">IKSLine</a>
+
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <nav class="footer-nav">
+              <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/about">О нас</a></li>
+                <li><a href="/contact">Контакты</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script th:src="@{js/jquery/jquery-2.2.4.min.js}"></script>
+  <script th:src="@{js/bootstrap/popper.min.js}"></script>
+  <script th:src="@{js/bootstrap/bootstrap.min.js}"></script>
+  <script th:src="@{js/plugins/plugins.js}"></script>
+  <script th:src="@{js/active.js}"></script>
+</div>

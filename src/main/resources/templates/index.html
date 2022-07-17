@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="fragments/head :: head"></head>
+
+<body>
+
+<div th:replace="fragments/layout/header :: header"></div>
+<section th:replace="fragments/hero-area :: hero-area"></section>
+
+
+<div class="pixel-portfolio-area section-padding-100-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-heading text-center wow fadeInUp" data-wow-delay="100ms">
+          <img th:src="@{/img/core-img/logo2.png}" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div th:replace="fragments/layout/footer :: footer"></div>
+
+</body>
+</html>

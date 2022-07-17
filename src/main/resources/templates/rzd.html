@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="fragments/head :: head"></head>
+
+<body>
+<div th:replace="fragments/layout/header :: header"></div>
+<section th:replace="fragments/hero-area :: hero-area"></section>
+
+
+<div class="pixel-portfolio-area section-padding-100-0">
+  <div th:replace="fragments/portfolio-header :: portfolio-header(img='img/bg-img/ti3inf.jpg', title='Принцип работы')"></div>
+
+  <!-- Portfolio Menu -->
+  <div class="section-heading text-center wow fadeInUp" data-wow-delay="100ms">
+    <h2>Каталог готовых продуктов</h2>
+  </div>
+
+
+  <div th:replace="fragments/single-gallery-item :: single-gallery-item('img/bg-img/5.jpg', 'IKSLine Voice Alarm Tower v.3')"></div>
+  <div th:replace="fragments/single-gallery-item :: single-gallery-item('img/bg-img/6.jpg', 'IKSLine Face Control')"></div>
+  <div th:replace="fragments/single-gallery-item :: single-gallery-item('img/bg-img/7.jpg', 'IKSLine Voice Alarm Tower v.3+V')"></div>
+  <div th:replace="fragments/single-gallery-item :: single-gallery-item('img/bg-img/55.jpg', 'IKSLine HELPTower v3')"></div>
+  <div th:replace="fragments/single-gallery-item :: single-gallery-item('img/bg-img/66.jpg', 'IKSLine HELPTower v4')"></div>
+  <div th:replace="fragments/single-gallery-item :: single-gallery-item('img/bg-img/77.jpg', 'IKSLine Security control system')"></div>
+
+</div>
+
+
+<div th:replace="fragments/layout/footer :: footer"></div>
+</body>
+
+</html>
