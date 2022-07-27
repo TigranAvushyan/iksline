@@ -3,5 +3,56 @@
 <head th:replace="fragments/head :: head"></head>
 <body>
 <h1>Admin Panel</h1>
+
+
+<div style="padding: 30px">
+  <canvas id="line-chart" width="800" height="450"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.2/dist/chart.min.js"></script>
+<script>
+  const borderColors = ["#fc5c65", "#fd9644", "#fed330", "#26de81", "#2bcbba", "#45aaf2", "#4b7bec", "#a55eea", "#d1d8e0", "#778ca3"];
+  const borderColors = ["#eb3b5a", "#fa8231", "#f7b731", "#20bf6b", "#0fb9b1", "#2d98da", "#3867d6", "#8854d0", "#a5b1c2", "#4b6584"];
+
+
+  const labels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+  const datasets = [
+    {
+      labels: "facebook",
+      data: [15, 20, 37, 48, 75, 16, 72, 81, 49, 150, 110, 120],
+      borderColor: "rgb(75, 192, 192)",
+      tension: 0.1
+    },
+    {
+      labels: "vk",
+      data: [115, 220, 7, 98, 71, 16, 72, 81, 49, 150, 110, 120],
+      borderColor: "rgb(75, 192, 192)",
+      tension: 0.1
+    },
+    {
+      labels: "google",
+      data: [15, 20, 37, 48, 75, 16, 72, 81, 49, 150, 110, 120]
+    },
+    {
+      labels: "default",
+      data: [15, 20, 37, 48, 75, 16, 72, 81, 49, 150, 110, 120]
+    }
+  ];
+
+
+  new Chart(document.getElementById("line-chart"), {
+    type: "line",
+    data: {
+      labels: labels,
+      datasets: datasets
+    },
+    options: {
+      title: {
+        display: true,
+        text: "World population per region (in millions)"
+      }
+    }
+  });
+</script>
 </body>
 </html>
