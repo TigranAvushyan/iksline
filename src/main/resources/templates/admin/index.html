@@ -2,49 +2,82 @@
 <html lang="en">
 <head th:replace="fragments/head :: head"></head>
 <body>
-<h1>Admin Panel</h1>
 
 
-<div style="padding: 30px">
+<div style="padding: 50px">
+  <h1>Admin Page</h1>
   <canvas id="line-chart" width="800" height="450"></canvas>
+
+
+  <div style="width: 100%; padding: 60px; text-align: center">
+    <a href="/admin/all" style="font-size: 1.5rem; color: blue">Показать все</a>
+  </div>
 </div>
+
+<div th:replace="fragments/layout/scripts">
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.2/dist/chart.min.js"></script>
-<script>
-  const borderColors = ["#fc5c65", "#fd9644", "#fed330", "#26de81", "#2bcbba", "#45aaf2", "#4b7bec", "#a55eea", "#d1d8e0", "#778ca3"];
-  const borderColors = ["#eb3b5a", "#fa8231", "#f7b731", "#20bf6b", "#0fb9b1", "#2d98da", "#3867d6", "#8854d0", "#a5b1c2", "#4b6584"];
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
+<script th:inline="javascript">
 
-  const labels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  /*<![CDATA[*/
 
-  const datasets = [
-    {
-      labels: "facebook",
-      data: [15, 20, 37, 48, 75, 16, 72, 81, 49, 150, 110, 120],
-      borderColor: "rgb(75, 192, 192)",
-      tension: 0.1
-    },
-    {
-      labels: "vk",
-      data: [115, 220, 7, 98, 71, 16, 72, 81, 49, 150, 110, 120],
-      borderColor: "rgb(75, 192, 192)",
-      tension: 0.1
-    },
-    {
-      labels: "google",
-      data: [15, 20, 37, 48, 75, 16, 72, 81, 49, 150, 110, 120]
-    },
-    {
-      labels: "default",
-      data: [15, 20, 37, 48, 75, 16, 72, 81, 49, 150, 110, 120]
-    }
+  const statisticList = /*[[${statisticList}]]*/ [];
+
+  /*]]>*/
+
+  const borderColors = [
+    "#fc5c65", "#fd9644", "#fed330", "#26de81", "#2bcbba", "#45aaf2", "#4b7bec", "#a55eea", "#d1d8e0", "#778ca3",
+    "#ef5777", "#575fcf", "#4bcffa", "#34e7e4", "#0be881", "#ffc048", "#ffdd59", "#ff5e57", "#d2dae2", "#485460"];
+  const backgroundColors = [
+    "#eb3b5a", "#fa8231", "#f7b731", "#20bf6b", "#0fb9b1", "#2d98da", "#3867d6", "#8854d0", "#a5b1c2", "#4b6584",
+    "#f53b57", "#3c40c6", "#0fbcf9", "#00d8d6", "#05c46b", "#ffc048", "#ffa801", "#ff3f34", "#808e9b", "#1e272e"
   ];
 
 
+  const sites = statisticList.reduce((acc, cur) => acc.add(cur.site), new Set);
+  const months = statisticList.reduce((acc, cur) => acc.add(cur.created_month), new Set);
+  const datasets = [];
+
+  const getData = (site, firstDate) => {
+    const dataRes = [];
+    const firstMount = new Date(firstDate).getMonth();
+    for (let i = firstMount - 1; i < firstMount + 12; i++) {
+      const item = statisticList.find((j, index) => {
+        const currentMonth = i > 11 ? i - 12 : i;
+        return new Date(j.created_month).getMonth() === currentMonth && site === j.site;
+      });
+      dataRes.push(item?.total || 0);
+    }
+    return dataRes;
+  };
+
+  let index = 0;
+  sites.forEach(value => {
+    const data = {
+      label: value,
+      data: getData(value, statisticList[0].created_month),
+      borderColor: borderColors[index] || undefined,
+      backgroundColor: backgroundColors[index] || undefined,
+      tension: 0.1
+    };
+    index++;
+    if (index > borderColors.length) index = 0;
+    datasets.push(data);
+  });
+
+  const labels = Array.from(months).map(i => {
+    return moment(i).lang("ru").format("MM.YY");
+  });
+
+  console.log(labels);
+
   new Chart(document.getElementById("line-chart"), {
-    type: "line",
-    data: {
-      labels: labels,
-      datasets: datasets
+    type: "line", data: {
+      labels,
+      datasets
     },
     options: {
       title: {
@@ -53,6 +86,16 @@
       }
     }
   });
+
+  $('.sync-pagination').twbsPagination({
+    totalPages: 20,
+    onPageClick: function (evt, page) {
+      $('#content').text('Page ' + page);
+    }
+  });
+
+
+
 </script>
 </body>
 </html>
