@@ -5,6 +5,10 @@ import com.app.iksline.entity.UtmEntity;
 import com.app.iksline.repository.StatisticRepository;
 import com.app.iksline.repository.UtmRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -27,6 +31,11 @@ public class UtmService {
 
     utmRepository.save(utm);
 
+  }
+
+  public Page<UtmEntity> getAllUtms(int pageNumber) {
+    Pageable page = PageRequest.of(pageNumber - 1, 20, Sort.by("createdDate").descending());
+    return utmRepository.findAll(page);
   }
 
 

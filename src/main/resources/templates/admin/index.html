@@ -6,11 +6,11 @@
 
 <div style="padding: 50px">
   <h1>Admin Page</h1>
-  <canvas id="line-chart" width="800" height="450"></canvas>
+  <canvas id="line-chart" width="700" height="300"></canvas>
 
 
   <div style="width: 100%; padding: 60px; text-align: center">
-    <a href="/admin/all" style="font-size: 1.5rem; color: blue">Показать все</a>
+    <a href="/admin/all-utms/1" style="font-size: 1.5rem; color: blue">Показать все</a>
   </div>
 </div>
 
@@ -25,7 +25,6 @@
   /*<![CDATA[*/
 
   const statisticList = /*[[${statisticList}]]*/ [];
-
   /*]]>*/
 
   const borderColors = [
@@ -44,8 +43,8 @@
   const getData = (site, firstDate) => {
     const dataRes = [];
     const firstMount = new Date(firstDate).getMonth();
-    for (let i = firstMount - 1; i < firstMount + 12; i++) {
-      const item = statisticList.find((j, index) => {
+    for (let i = firstMount; i < firstMount + 12; i++) {
+      const item = statisticList.find((j) => {
         const currentMonth = i > 11 ? i - 12 : i;
         return new Date(j.created_month).getMonth() === currentMonth && site === j.site;
       });
@@ -72,7 +71,6 @@
     return moment(i).lang("ru").format("MM.YY");
   });
 
-  console.log(labels);
 
   new Chart(document.getElementById("line-chart"), {
     type: "line", data: {
@@ -86,15 +84,6 @@
       }
     }
   });
-
-  $('.sync-pagination').twbsPagination({
-    totalPages: 20,
-    onPageClick: function (evt, page) {
-      $('#content').text('Page ' + page);
-    }
-  });
-
-
 
 </script>
 </body>
